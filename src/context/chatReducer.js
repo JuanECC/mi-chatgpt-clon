@@ -1,5 +1,3 @@
-// src/context/chatReducer.js
-
 export const initialState = {
   messages: [],
   history: JSON.parse(localStorage.getItem('chatHistory')) || [],

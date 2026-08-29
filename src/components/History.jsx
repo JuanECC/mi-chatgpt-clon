@@ -2,10 +2,10 @@ import React from 'react';
 import { useChat } from '../context/ChatContext';
 
 function History({ isOpen, onClose }) {
-  const { state, loadHistory } = useChat();
+  const { history, loadHistory } = useChat();
 
   const handleLoad = () => {
-    loadHistory(state.history);
+    loadHistory(history);
   };
 
   return (
@@ -31,10 +31,10 @@ function History({ isOpen, onClose }) {
         </button>
 
         <ul className="space-y-2">
-          {state.history.length === 0 ? (
+          {history.length === 0 ? (
             <li className="text-gray-500">No hay historial guardado.</li>
           ) : (
-            state.history.map((msg, index) => (
+            history.map((msg, index) => (
               <li key={index} className="truncate text-sm">
                 {msg.sender === 'user' ? 'Tú' : 'Bot'}: {msg.text}
               </li>

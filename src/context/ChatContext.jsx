@@ -1,5 +1,3 @@
-// src/context/ChatContext.jsx
-
 import React, { createContext, useContext, useReducer } from 'react';
 import { chatReducer, initialState } from './chatReducer';
 
@@ -27,7 +25,8 @@ export function ChatProvider({ children }) {
   return (
     <ChatContext.Provider
       value={{
-        state,
+        messages: state.messages,
+        history: state.history,
         addMessage,
         clearChat,
         saveHistory,

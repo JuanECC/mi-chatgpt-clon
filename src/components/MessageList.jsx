@@ -2,9 +2,9 @@ import React from 'react';
 import { useChat } from '../context/ChatContext';
 
 function MessageList() {
-  const { state } = useChat();
+  const { messages } = useChat();
 
-  if (state.messages.length === 0) {
+  if (messages.length === 0) {
     return (
       <div className="text-center text-gray-500 mt-10">
         No hay mensajes todavía.
@@ -14,7 +14,7 @@ function MessageList() {
 
   return (
     <div className="flex flex-col gap-4">
-      {state.messages.map((msg, index) => (
+      {messages.map((msg, index) => (
         <div
           key={index}
           className={`p-4 max-w-[80%] ${
