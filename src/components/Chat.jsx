@@ -8,36 +8,28 @@ function Chat({ onToggleSidebar }) {
 
   return (
     <div className="flex flex-col h-screen">
-      <header className="flex items-center p-4" style={{ backgroundColor: 'var(--color-cream)' }}>
+      <header className="chat-header">
         <button
           onClick={onToggleSidebar}
           className="btn-secondary rounded-full w-10 h-10 flex items-center justify-center text-xl"
         >
           ☰
         </button>
-        <h1 className="text-2xl font-bold ml-4" style={{ color: 'var(--color-coffee)' }}>
-          DevSeek Chat
-        </h1>
+        <h1 className="chat-header-title">DevSeek Chat</h1>
       </header>
 
-      <div className="flex-1 overflow-y-auto p-4">
+      <div className="messages-area">
         <MessageList />
       </div>
 
-      <div className="input-area p-4">
+      <div className="input-area">
         <MessageInput />
-        <div className="flex gap-2 mt-2">
-          <button
-            onClick={clearChat}
-            className="btn-secondary py-2 px-4 rounded-lg"
-          >
-            Limpiar chat
+        <div className="actions-row">
+          <button className="btn-secondary" onClick={clearChat}>
+            🗑️ Limpiar chat
           </button>
-          <button
-            onClick={saveHistory}
-            className="btn-primary py-2 px-4 rounded-lg"
-          >
-            Guardar historial
+          <button className="btn-primary" onClick={saveHistory}>
+            💾 Guardar historial
           </button>
         </div>
       </div>

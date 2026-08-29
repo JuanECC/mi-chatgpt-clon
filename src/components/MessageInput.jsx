@@ -20,24 +20,19 @@ function MessageInput() {
   };
 
   return (
-    <form onSubmit={handleSend} className="flex gap-2">
+    <form onSubmit={handleSend} className="input-form">
       <input
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="Escribe tu mensaje..."
         disabled={isLoading}
-        className="flex-1 rounded-lg px-4 py-2 border"
-        style={{
-          backgroundColor: 'var(--color-cream)',
-          borderColor: 'var(--color-coffee)',
-          color: 'var(--color-black)'
-        }}
+        className="input-field"
       />
       <button
         type="submit"
         disabled={isLoading}
-        className="btn-primary py-2 px-6 rounded-lg"
+        className="btn-send"
       >
         {isLoading ? 'Pensando...' : 'Enviar'}
       </button>

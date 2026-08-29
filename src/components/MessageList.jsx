@@ -7,27 +7,25 @@ function MessageList() {
   if (messages.length === 0) {
     return (
       <div className="text-center text-gray-500 mt-10">
-        No hay mensajes todavía.
+        No hay mensajes todavía. Comienza la conversación.
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col gap-4">
+    <>
       {messages.map((msg, index) => (
         <div
           key={index}
-          className={`p-4 max-w-[80%] ${
-            msg.sender === 'user' ? 'message-user' : 'message-bot'
-          }`}
+          className={msg.sender === 'user' ? 'message-user' : 'message-bot'}
         >
-          <span className="font-bold">
-            {msg.sender === 'user' ? 'Tú' : 'DevSeek'}:{' '}
-          </span>
+          <div className="message-sender">
+            {msg.sender === 'user' ? '👤 Tú' : '🤖 DevSeek'}
+          </div>
           {msg.text}
         </div>
       ))}
-    </div>
+    </>
   );
 }
 
